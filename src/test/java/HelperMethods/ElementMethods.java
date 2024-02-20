@@ -12,7 +12,7 @@ import org.testng.Assert;
 
 import java.time.Duration;
 
-public class ElementMethods extends SharedData {
+public class ElementMethods {
 
     private WebDriver driver;
 

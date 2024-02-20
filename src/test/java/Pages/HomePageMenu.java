@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePageMenu extends MainPage {
+public class HomePageMenu extends HomePage {
 
     public HomePageMenu(WebDriver driver) {
         super(driver);
@@ -47,31 +47,28 @@ public class HomePageMenu extends MainPage {
     @FindBy (xpath = "//input[@id='Form_submitForm_action_request']")
     private WebElement freeTrialButton;
 
-    public void clickLogo(){
-        logoButton.click();
+//    public void clickLogo(){
+//        logoButton.click();
+//    }
+//
+//    public void setLanguageEnglish(){
+//        languageEnglishButton.click();
+//    }
+//
+//    public void setLanguageSpanish(){
+//        languageSpanishButton.click();
+//    }
+//
+//    public void clickSolutionsButton(){
+//        solutionsButton.click();
+//    }
+
+    public void clickBookDemo(){
+        bookDemoButton.click();
     }
 
-    public void hoverLanguageButton(){
-        actions.moveToElement(languageEnglishButton).build().perform();
+    public void clickContactSales(){
+        contactSalesButton.click();
     }
-
-    public void setLanguageEnglishButton(){
-        languageEnglishButton.click();
-    }
-
-    public void setLanguageSpanishButton(){
-        languageSpanishButton.click();
-    }
-
-
-
-
-
-
-
-
-
-
-
 
 }
