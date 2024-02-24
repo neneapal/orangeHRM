@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePageMenu extends HomePage {
+public class HomePageMenu extends MainPage {
 
     public HomePageMenu(WebDriver driver) {
         super(driver);

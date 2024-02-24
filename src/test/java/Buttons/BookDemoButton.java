@@ -27,13 +27,13 @@ public class BookDemoButton extends MainPage {
     @FindBy (id = "Form_getForm_Country")
     private WebElement countryName;
 
-    @FindBy (xpath = "//*[ text() = Algeria]")
+    @FindBy (xpath = "//option[contains(text(),'Algeria')]")
     private WebElement selectCountry;
 
     @FindBy (id = "Form_getForm_Contact")
     private WebElement phoneNumber;
 
-    @FindBy (xpath = "/html/body/div[2]/div[3]/div[1]/div/div/span/div[1]")
+    @FindBy (id = "recaptcha-anchor")
     private WebElement captchaCheckBox;
 
     @FindBy (id = "Form_getForm_action_submitForm")
@@ -50,7 +50,7 @@ public class BookDemoButton extends MainPage {
         fillFullName(fullName);
         fillBusinessEmail(businessEmail);
         fillCompanyName(companyName);
-//        fillCountryName(countryName);
+        fillCountryName(countryName);
         fillPhoneNumber(phoneNumber);
     }
 
@@ -71,11 +71,11 @@ public class BookDemoButton extends MainPage {
         companyName.sendKeys(companyNameValue);
     }
 
-//    public void fillCountryName(String countryValue){
+    public void fillCountryName(String countryValue){
 //        elementMethods.scrollByPixels(0,450);
-//        elementMethods.clickElement(countryName);
-//        elementMethods.fillElement(selectCountry, countryValue, Keys.ENTER);
-//    }
+        elementMethods.clickElement(countryName);
+        elementMethods.fillElement(selectCountry, countryValue, Keys.ENTER);
+    }
 
     public void fillSubmit(){
         elementMethods.clickJsElement(submitButton);
