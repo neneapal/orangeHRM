@@ -40,7 +40,7 @@ public class BookDemoButton extends MainPage {
     private WebElement submitButton;
 
     @FindBy (id = "/html/body/div[3]/div/div/section[1]/div[2]/div/div[2]/div\n")
-    private List<WebElement> valitaionTable;
+    private List<WebElement> validationTable;
 
     @FindBy (xpath = "/html/body/div[3]/div/div/section/div[1]/div/div/div/div[2]/h1\n")
     private WebElement thanksMessage;
@@ -54,35 +54,31 @@ public class BookDemoButton extends MainPage {
         fillPhoneNumber(phoneNumber);
     }
 
-    public List<String>getFormValues(){
-        List<String> formValues = new ArrayList<>();
-        formValues.add(countryName.getText());
-        return formValues;
-    }
 
     public void fillFullName(String fullNameValue){
         elementMethods.fillElement(fullName, fullNameValue);
     }
     public void fillBusinessEmail(String businessEmailValue){
-        businessEmail.sendKeys(businessEmailValue);
+        elementMethods.fillElement(businessEmail, businessEmailValue);
     }
 
     public void fillCompanyName(String companyNameValue){
-        companyName.sendKeys(companyNameValue);
+        elementMethods.fillElement(companyName, companyNameValue);
     }
 
     public void fillCountryName(String countryValue){
 //        elementMethods.scrollByPixels(0,450);
-        elementMethods.clickElement(countryName);
+        elementMethods.clickJsElement(countryName);
         elementMethods.fillElement(selectCountry, countryValue, Keys.ENTER);
     }
+
 
     public void fillSubmit(){
         elementMethods.clickJsElement(submitButton);
     }
 
     public void fillPhoneNumber(String phoneNumberValue){
-        phoneNumber.sendKeys(phoneNumberValue);
+        elementMethods.fillElement(phoneNumber, phoneNumberValue);
     }
 
     public void validateForm(String expectedMessage, String fullNameValue, String businessEmailValue,
@@ -90,20 +86,20 @@ public class BookDemoButton extends MainPage {
 
         elementMethods.validateElementMessage(thanksMessage, expectedMessage);
 
-        Assert.assertTrue(valitaionTable.get(0).getText().contains("Full Name"));
-        Assert.assertTrue(valitaionTable.get(0).getText().contains(fullNameValue));
+        Assert.assertTrue(validationTable.get(0).getText().contains("Full Name"));
+        Assert.assertTrue(validationTable.get(0).getText().contains(fullNameValue));
 
-        Assert.assertTrue(valitaionTable.get(1).getText().contains("Business Email"));
-        Assert.assertTrue(valitaionTable.get(1).getText().contains(businessEmailValue));
+        Assert.assertTrue(validationTable.get(1).getText().contains("Business Email"));
+        Assert.assertTrue(validationTable.get(1).getText().contains(businessEmailValue));
 
-        Assert.assertTrue(valitaionTable.get(2).getText().contains("Company Name"));
-        Assert.assertTrue(valitaionTable.get(2).getText().contains(companyNameValue));
+        Assert.assertTrue(validationTable.get(2).getText().contains("Company Name"));
+        Assert.assertTrue(validationTable.get(2).getText().contains(companyNameValue));
 
-        Assert.assertTrue(valitaionTable.get(3).getText().contains("Country Name"));
-        Assert.assertTrue(valitaionTable.get(3).getText().contains(countryValue));
+        Assert.assertTrue(validationTable.get(3).getText().contains("Country Name"));
+        Assert.assertTrue(validationTable.get(3).getText().contains(countryValue));
 
-        Assert.assertTrue(valitaionTable.get(4).getText().contains("Phone Number"));
-        Assert.assertTrue(valitaionTable.get(4).getText().contains(phoneNumberValue));
+        Assert.assertTrue(validationTable.get(4).getText().contains("Phone Number"));
+        Assert.assertTrue(validationTable.get(4).getText().contains(phoneNumberValue));
 
     }
 

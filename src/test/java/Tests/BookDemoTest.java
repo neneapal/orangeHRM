@@ -25,8 +25,6 @@ public class BookDemoTest extends SharedData {
 
         BookDemoButton bookDemoButton = new BookDemoButton(getDriver());
         bookDemoButton.fillForm(fullNameValue, businessEmailValue, companyNameValue, countryValue, phoneNumberValue);
-
-        List<String> formValues = bookDemoButton.getFormValues();
         bookDemoButton.fillSubmit();
 
         bookDemoButton.validateForm(expectedMessage, fullNameValue, businessEmailValue, companyNameValue, countryValue, phoneNumberValue);
