@@ -1,16 +1,12 @@
 package Pages;
 
-import HelperMethods.ElementMethods;
-import SharedData.SharedData;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePageMenu extends MainPage {
+public class HomePage extends MainPage {
 
-    public HomePageMenu(WebDriver driver) {
+    public HomePage(WebDriver driver) {
         super(driver);
     }
 
@@ -38,13 +34,13 @@ public class HomePageMenu extends MainPage {
     @FindBy (xpath = "//div[@class='d-flex web-menu-btn']//li[1]//a[1]")
     private WebElement bookDemoButton;
 
-    @FindBy (xpath = "//div[@class='d-flex web-menu-btn']//li[1]//a[1]")
+    @FindBy (xpath = "//body/nav[1]/div[1]/div[2]/div[2]/ul[1]/li[2]/a[1]/button[1]")
     private WebElement contactSalesButton;
 
-    @FindBy (xpath = "//input[@id='Form_submitForm_EmailHomePage']")
-    private WebElement emailInput;
+    @FindBy (id = "Form_submitForm_EmailHomePage")
+    private WebElement enterEmailInput;
 
-    @FindBy (xpath = "//input[@id='Form_submitForm_action_request']")
+    @FindBy(id = "Form_submitForm_action_request")
     private WebElement freeTrialButton;
 
 //    public void clickLogo(){
@@ -70,5 +66,13 @@ public class HomePageMenu extends MainPage {
     public void clickContactSales(){
         contactSalesButton.click();
     }
+
+    public void enterEmail(){
+        enterEmailInput.sendKeys("mail@mail.com");
+   }
+
+   public void clickFreeTrialButton(){
+        freeTrialButton.click();
+   }
 
 }
